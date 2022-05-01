@@ -1,0 +1,6 @@
+.profile-info {
+  display: grid;
+  grid-template-areas:
+    "avatar name button"
+    "avatar job-title .";
+}

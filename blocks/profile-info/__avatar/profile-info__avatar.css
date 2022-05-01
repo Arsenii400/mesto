@@ -1,0 +1,4 @@
+.profile-info__avatar {
+  grid-area: avatar;
+  border-radius: 50%;
+}
