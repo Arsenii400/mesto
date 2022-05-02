@@ -6,3 +6,13 @@
   margin: 0;
   padding: 16px 0 0 30px;
 }
+
+@media screen and (max-width: 710px) {
+  .profile-info__job-title {
+    font-size: 14px;
+    line-height: 1.21;
+    text-align: center;
+    margin: 0 0 32px 0;
+    padding: 0;
+  }
+}

@@ -4,3 +4,13 @@
     "avatar name button"
     "avatar job-title .";
 }
+
+@media screen and (max-width: 710px) {
+  .profile-info {
+    grid-template-areas:
+      "avatar avatar"
+      "name button"
+      "job-title job-title";
+    justify-items: center;
+  }
+}
