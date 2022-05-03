@@ -7,3 +7,10 @@
   align-items: center;
   padding: 0 19px;
 }
+
+@media screen and (max-width: 710px) {
+  .page {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}

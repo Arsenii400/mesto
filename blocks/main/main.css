@@ -5,3 +5,11 @@
   width: 100%;
   max-width: 880px;
 }
+
+@media screen and (max-width: 710px) {
+  .main {
+    box-sizing: border-box;
+    padding-right: 19px;
+    padding-left: 19px;
+  }
+}
