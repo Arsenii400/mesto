@@ -21,9 +21,9 @@
 
       <div class="profile__info">
         <img class="profile__avatar" src="./images/avatar.jpg" alt="Жак Ив Кусто">
-        <h1 class="profile__heading">Жак-Ив Кусто</h1>
-        <p class="profile__job-title">Исследователь океана</p>
-        <button class="profile__edit-button" type="button" aria-label="edit"> </button>
+        <h1 class="profile__heading">Марк-Ив Кустодиев</h1>
+        <p class="profile__job-title">Исследователь куркумы</p>
+        <button class="profile__edit-button" type="button" aria-label="edit"></button>
       </div>
 
       <button class="profile__add-button" type="button" aria-label="addButton"></button>
@@ -32,77 +32,41 @@
 
     <section class="elements-wrapper">
       <ul class="elements">
-
-        <li class="element">
-          <img src="./images/karachaevsk-unsplash.jpg" alt="Карачаевск" class="element__img">
-          <div class="element__wrapper">
-            <h2 class="element__heading">Карачаевск</h2>
-            <button class="element__like" type="button" aria-label="like"></button>
-          </div>
-        </li>
-
-        <li class="element">
-          <img src="./images/Elbrus-unsplash.jpg" alt="Эльбрус" class="element__img">
-          <div class="element__wrapper">
-            <h2 class="element__heading">Гора Эльбрус</h2>
-            <button class="element__like" type="button" aria-label="like"></button>
-          </div>
-        </li>
-
-        <li class="element">
-          <img src="./images/dombai-unsplash.jpg" alt="Домбай" class="element__img">
-          <div class="element__wrapper">
-            <h2 class="element__heading">Домбай</h2>
-            <button class="element__like" type="button" aria-label="like"></button>
-          </div>
-        </li>
-
-        <li class="element">
-          <img src="./images/Elbrus-unsplash.jpg" alt="Эльбрус" class="element__img">
-          <div class="element__wrapper">
-            <h2 class="element__heading">Гора Эльбрус</h2>
-            <button class="element__like" type="button" aria-label="like"></button>
-          </div>
-        </li>
-
-        <li class="element">
-          <img src="./images/dombai-unsplash.jpg" alt="Домбай" class="element__img">
-          <div class="element__wrapper">
-            <h2 class="element__heading">Домбай</h2>
-            <button class="element__like" type="button" aria-label="like"></button>
-          </div>
-        </li>
-
-        <li class="element">
-          <img src="./images/karachaevsk-unsplash.jpg" alt="Карачаевск" class="element__img">
-          <div class="element__wrapper">
-            <h2 class="element__heading">Карачаево-Черкесия</h2>
-            <button class="element__like" type="button" aria-label="like"></button>
-          </div>
-        </li>
-
       </ul>
     </section>
   </main>
 
   <footer class="footer">
-    <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+    <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
   </footer>
 
-  <div class="popup">
-    <div class="popup__container">
-      <button class="popup__close" type="button" aria-label="close"> </button>
+  <template id="popup">
+    <div class="popup">
+      <div class="popup__container">
+        <button class="popup__close" type="button" aria-label="close"> </button>
 
-      <form class="popup__form" name="editProfileForm">
-        <h3 class="popup__heading">Редактировать профиль</h3>
-        <input class="popup__field popup__field_type_name" type="text" name="fullName" placeholder="Имя">
-        <input class="popup__field popup__field_type_job" type="text" name="job" placeholder="О Себе">
-        <button class="popup__submit" type="submit">Сохранить</button>
-      </form>
+        <form class="popup__form" name="editProfileForm">
+          <h3 class="popup__heading"> </h3>
+          <input class="popup__field popup__field_type_name" type="text" name="fullName" placeholder=" ">
+          <input class="popup__field popup__field_type_job" type="text" name="job" placeholder=" ">
+          <button class="popup__submit" type="submit"> </button>
+        </form>
 
+      </div>
     </div>
-  </div>
+  </template>
+
+  <template id="element">
+    <li class="element">
+      <img src=" " alt=" " class="element__img">
+      <div class="element__wrapper">
+        <h2 class="element__heading"></h2>
+        <button class="element__like" type="button" aria-label="like"></button>
+      </div>
+    </li>
+  </template>
   <script src="./scripts/index.js"></script>
 </body>
+
 
 </html>
