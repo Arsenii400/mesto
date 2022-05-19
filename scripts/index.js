@@ -1,16 +1,10 @@
-const openEditPopup = document.querySelector('.profile__edit-button');
-const closePopup = document.querySelector('.popup__close');
-const popup = document.querySelector('.popup');
-const popupName = document.querySelector('.popup__field_type_name');
-const popupJob = document.querySelector('.popup__field_type_job');
+const page = document.querySelector('.page');
+const templatePopup = document.querySelector('#popup');
+const templateCard = document.querySelector('#element');
+const cardsListWrapper = document.querySelector('.elements');
+const footer = document.querySelector('.footer');
 const fullName = document.querySelector('.profile__heading');
 const job = document.querySelector('.profile__job-title');
-const submit = document.querySelector('.popup__form');
-const profile = document.querySelector('.profile');
-const footer = document.querySelector('.footer');
-const templatePopup = document.querySelector('#popup');
-const page = document.querySelector('.page');
-const submitBtn = document.querySelector('popup__submit');
 
 function getEditPopup() {
   const editPopup = templatePopup.content.cloneNode(true);
@@ -45,7 +39,6 @@ function closePopupBtn() {
   popupToClose.remove();
 };
 
-
 function submitEditPopup(evt) {
   evt.preventDefault();
   const popupEditName = document.querySelector('.popup__field_type_name');
@@ -55,13 +48,24 @@ function submitEditPopup(evt) {
   closePopupBtn();
 };
 
-page.addEventListener('submit', function (evt) {
-  const el = evt.target;
-  if (el.textContent.includes('Сохранить')) {
-    submitEditPopup(evt);
-  }
-});
+function submitAddUserCard(evt) {
+  evt.preventDefault();
+  const newCard = templateCard.content.cloneNode(true);
+  const newCardTitle = newCard.querySelector('.element__heading');
+  const newCardLink = newCard.querySelector('.element__img');
+  const popupEditName = document.querySelector('.popup__field_type_name');
+  const popupEditJob = document.querySelector('.popup__field_type_job');
+  newCardTitle.textContent = popupEditName.value;
+  newCardLink.src = popupEditJob.value;
+  newCardLink.alt = popupEditName.value;
+  cardsListWrapper.prepend(newCard);
+  closePopupBtn()
+};
 
+function likeActive(evt) {
+  const el = evt.target;
+  el.classList.toggle('element__like_type_active');
+};
 
 page.addEventListener('click', function (evt) {
   const el = evt.target;
@@ -73,6 +77,19 @@ page.addEventListener('click', function (evt) {
   }
   else if (el.classList.value === 'popup__close') {
     closePopupBtn();
+  }
+  else if (el.classList.contains('element__like')) {
+    likeActive(evt);
+  };
+});
+
+page.addEventListener('submit', function (evt) {
+  const el = evt.target;
+  if (el.textContent.includes('Сохранить')) {
+    submitEditPopup(evt);
+  }
+  else if (el.textContent.includes('Создать')) {
+    submitAddUserCard(evt);
   }
 });
 
@@ -103,9 +120,6 @@ const initialCards = [
   }
 ];
 
-const cardsListWrapper = document.querySelector('.elements');
-const templateCard = document.querySelector('#element');
-
 const getCard = function (title) {
   const newCard = templateCard.content.cloneNode(true);
   const newCardTitle = newCard.querySelector('.element__heading');
@@ -117,7 +131,7 @@ const getCard = function (title) {
 };
 
 function renderCards(wrapper, title) {
-  wrapper.append(getCard(title));
+  wrapper.prepend(getCard(title));
 };
 
 initialCards.forEach(function (title) {
