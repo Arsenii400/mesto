@@ -6,11 +6,11 @@
   padding: 9.5px 11px;
   margin: 30px 20px 30px 0;
   border: none;
-  cursor: pointer;
 }
 
 .element__like:hover {
   opacity: 0.5;
+  cursor: pointer;
 }
 
 .element__like:active {
