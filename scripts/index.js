@@ -1,6 +1,7 @@
 const page = document.querySelector('.page');
 const templatePopup = document.querySelector('#popup');
 const templateCard = document.querySelector('#element');
+const templateImagePopup = document.querySelector('#imagePopup');
 const cardsListWrapper = document.querySelector('.elements');
 const footer = document.querySelector('.footer');
 const fullName = document.querySelector('.profile__heading');
@@ -39,6 +40,11 @@ function closePopupBtn() {
   popupToClose.remove();
 };
 
+function closeFullPhoto() {
+  const photoToClose = document.querySelector('.imagePopup');
+  photoToClose.remove();
+}
+
 function submitEditPopup(evt) {
   evt.preventDefault();
   const popupEditName = document.querySelector('.popup__field_type_name');
@@ -63,8 +69,19 @@ function submitAddUserCard(evt) {
 };
 
 function likeActive(evt) {
-  const el = evt.target;
-  el.classList.toggle('element__like_type_active');
+  const elm = evt.target;
+  elm.classList.toggle('element__like_type_active');
+};
+
+function openFullPhoto(evt) {
+  const imagePopup = templateImagePopup.content.cloneNode(true);
+  const photo = imagePopup.querySelector('.imagePopup__photo');
+  const heading = imagePopup.querySelector('.imagePopup__heading');
+  const cardPhoto = evt.target;
+  photo.src = cardPhoto.src;
+  photo.alt = cardPhoto.alt;
+  heading.textContent = cardPhoto.alt;
+  footer.after(imagePopup);
 };
 
 page.addEventListener('click', function (evt) {
@@ -78,9 +95,15 @@ page.addEventListener('click', function (evt) {
   else if (el.classList.value === 'popup__close') {
     closePopupBtn();
   }
+  else if (el.classList.value === 'imagePopup__close') {
+    closeFullPhoto();
+  }
   else if (el.classList.contains('element__like')) {
     likeActive(evt);
-  };
+  }
+  else if (el.classList.value === 'element__img') {
+    openFullPhoto(evt);
+}
 });
 
 page.addEventListener('submit', function (evt) {

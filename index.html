@@ -21,8 +21,8 @@
 
       <div class="profile__info">
         <img class="profile__avatar" src="./images/avatar.jpg" alt="Жак Ив Кусто">
-        <h1 class="profile__heading">Марк-Ив Кустодиев</h1>
-        <p class="profile__job-title">Исследователь куркумы</p>
+        <h1 class="profile__heading">Жак-Ив Кусто</h1>
+        <p class="profile__job-title">Исследователь океана</p>
         <button class="profile__edit-button" type="button" aria-label="edit"></button>
       </div>
 
@@ -46,10 +46,10 @@
         <button class="popup__close" type="button" aria-label="close"> </button>
 
         <form class="popup__form" name="editProfileForm">
-          <h3 class="popup__heading"> </h3>
+          <h3 class="popup__heading"></h3>
           <input class="popup__field popup__field_type_name" type="text" name="fullName" placeholder=" ">
           <input class="popup__field popup__field_type_job" type="text" name="job" placeholder=" ">
-          <button class="popup__submit" type="submit"> </button>
+          <button class="popup__submit" type="submit"></button>
         </form>
 
       </div>
@@ -65,6 +65,17 @@
       </div>
     </li>
   </template>
+
+  <template id="imagePopup">
+  <div class="imagePopup">
+    <div class="imagePopup__container">
+      <button class="imagePopup__close" type="button" aria-label="close"></button>
+      <img class="imagePopup__photo" src=" " alt="">
+      <h3 class="imagePopup__heading"></h3>
+    </div>
+  </div>
+  </template>
+
   <script src="./scripts/index.js"></script>
 </body>
 
