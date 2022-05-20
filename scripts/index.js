@@ -51,7 +51,7 @@ function closePopupBtn() {
   const popupToClose = document.querySelector('.popup');
   popupToClose.classList.remove('smoothness');
   setTimeout(() => {
-  popupToClose.remove();
+    popupToClose.remove();
   }, 1000);
 };
 
@@ -59,7 +59,7 @@ function closeFullPhoto() {
   const photoToClose = document.querySelector('.imagePopup');
   photoToClose.classList.remove('smoothness');
   setTimeout(() => {
-  photoToClose.remove();
+    photoToClose.remove();
   }, 1000);
 }
 
@@ -107,7 +107,7 @@ function openFullPhoto(evt) {
 };
 
 function removeCard(evt) {
-evt.target.closest('.element').remove();
+  evt.target.closest('.element').remove();
 }
 
 // Повесил слушатель на всю страницу и на всплытии ловлю целевые элементы и к ним применяю функцию
@@ -131,7 +131,7 @@ page.addEventListener('click', function (evt) {
   else if (el.classList.value === 'element__img') {
     openFullPhoto(evt);
   }
-  else if (el.classList.value === 'element__trash'){
+  else if (el.classList.value === 'element__trash') {
     removeCard(evt);
   }
 });
@@ -149,7 +149,7 @@ page.addEventListener('submit', function (evt) {
 const initialCards = [
   {
     name: 'Микли (посёлок)',
-    link:   'https://images.unsplash.com/photo-1555948560-27b32a752ff3?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387'
+    link: 'https://images.unsplash.com/photo-1555948560-27b32a752ff3?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387'
   },
   {
     name: 'Челябинская область',
