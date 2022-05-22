@@ -1,4 +1,4 @@
-.imagePopup__container {
+.popup__image-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
