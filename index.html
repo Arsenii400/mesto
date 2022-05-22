@@ -40,21 +40,41 @@
     <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
   </footer>
 
-  <template id="popup">
-    <div class="popup">
-      <div class="popup__container">
-        <button class="popup__close" type="button" aria-label="close"> </button>
+  <div class="popup popup__edit">
+    <div class="popup__container">
+      <button class="popup__close popup__close_edit" type="button" aria-label="close"> </button>
 
-        <form class="popup__form" name="editProfileForm">
-          <h3 class="popup__heading"></h3>
-          <input class="popup__field popup__field_type_name" type="text" name="fullName" placeholder=" ">
-          <input class="popup__field popup__field_type_job" type="text" name="job" placeholder=" ">
-          <button class="popup__submit" type="submit"></button>
-        </form>
+      <form class="popup__form" name="editProfileForm">
+        <h3 class="popup__heading">Редактировать профиль</h3>
+        <input class="popup__field popup__field_type_name" type="text" name="fullName" placeholder="Имя">
+        <input class="popup__field popup__field_type_job" type="text" name="job" placeholder="О себе">
+        <button class="popup__submit" type="submit">Сохранить</button>
+      </form>
 
-      </div>
     </div>
-  </template>
+  </div>
+
+  <div class="popup popup__add">
+    <div class="popup__container">
+      <button class="popup__close popup__close_add" type="button" aria-label="close"> </button>
+
+      <form class="popup__form" name="addCardForm">
+        <h3 class="popup__heading">Новое место</h3>
+        <input class="popup__field popup__field_type_place" type="text" name="fullName" placeholder="Название">
+        <input class="popup__field popup__field_type_link" type="text" name="job" placeholder="Ссылка на картинку">
+        <button class="popup__submit" type="submit">Создать</button>
+      </form>
+
+    </div>
+  </div>
+
+  <div class="popup popup__image">
+    <div class="popup__image-container">
+      <button class="popup__close popup__close_image" type="button" aria-label="close"></button>
+      <img class="popup__photo" src=" " alt=" ">
+      <h3 class="popup__heading-image"></h3>
+    </div>
+  </div>
 
   <template id="element">
     <li class="element">
@@ -65,16 +85,6 @@
         <button class="element__like" type="button" aria-label="like"></button>
       </div>
     </li>
-  </template>
-
-  <template id="imagePopup">
-    <div class="imagePopup">
-      <div class="imagePopup__container">
-        <button class="imagePopup__close" type="button" aria-label="close"></button>
-        <img class="imagePopup__photo" src=" " alt="">
-        <h3 class="imagePopup__heading"></h3>
-      </div>
-    </div>
   </template>
 
   <script src="./scripts/index.js"></script>
