@@ -9,9 +9,9 @@ const popupEditJob = document.querySelector('.popup__field_type_job');
 const popupAddTitle = document.querySelector('.popup__field_type_place');
 const popupAddLink = document.querySelector('.popup__field_type_link');
 const popup = document.querySelector('.popup');
-const popupEdit = document.querySelector('.popup__edit');
-const popupAdd = document.querySelector('.popup__add');
-const popupImage = document.querySelector('.popup__image');
+const popupEdit = document.querySelector('.popup_edit');
+const popupAdd = document.querySelector('.popup_add');
+const popupImage = document.querySelector('.popup_image');
 const photo = document.querySelector('.popup__photo');
 const heading = document.querySelector('.popup__heading-image');
 
