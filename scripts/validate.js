@@ -59,7 +59,7 @@ function setEventListener(formElement) {
   });
 };
 
-function enableValidation() {
+function enableValidation(config) {
   const formList = Array.from(document.querySelectorAll(config.formSelector));
   formList.forEach((formElement) => {
     setEventListener(formElement);

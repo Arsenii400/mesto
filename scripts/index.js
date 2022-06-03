@@ -11,9 +11,9 @@ const popup = document.querySelector('.popup');
 const popups = document.querySelectorAll('.popup');
 const popupForm = document.querySelector('.popup__form');
 const popupForms = document.querySelectorAll('.popup__form');
-const popupEdit = document.querySelector('.popup__edit');
-const popupAdd = document.querySelector('.popup__add');
-const popupImage = document.querySelector('.popup__image');
+const popupEdit = document.querySelector('.popup_type_edit');
+const popupAdd = document.querySelector('.popup_type_add');
+const popupImage = document.querySelector('.popup_type_image');
 const photo = document.querySelector('.popup__photo');
 const heading = document.querySelector('.popup__heading-image');
 const like = document.querySelector('.element__like');
@@ -21,27 +21,43 @@ const trash = document.querySelector('.element__trash');
 const popupEditBtn = document.querySelector('.popup__submit_type_edit');
 const popupAddBtn = document.querySelector('.popup__submit_type_add');
 
+const addEsc = (evt) => {
+  if (evt.key === 'Escape') {
+    closePopup(popup);
+  };
+};
+
+function closePopupEscBtn() {
+  document.addEventListener('keydown', addEsc);
+}
+
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-  document.addEventListener('keydown', (evt) => {
-    if (evt.key === 'Escape') {
-      closePopup(popup);
-    };
-  });
-
+  closePopupEscBtn();
 };
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
   deleteErrorMessage(popup);
+  document.removeEventListener('keydown', addEsc);
 };
 
 popups.forEach((popup) => {
   popup.addEventListener('click', (evt) => {
-    if (evt.target.classList.contains('popup__close') || evt.target == evt.currentTarget) {
+    if (evt.target.classList.contains('popup__close')) {
       if (evt.target.classList.contains('popup__close_add')) {
-      document.forms.addCardForm.reset()};
-      closePopup(popup)};
+        document.forms.addCardForm.reset()
+      };
+      closePopup(popup)
+    };
+  });
+  popup.addEventListener('mousedown', (evt) => {
+    if (evt.target == evt.currentTarget) {
+      if (evt.target.classList.contains('popup__close_add')) {
+        document.forms.addCardForm.reset()
+      };
+      closePopup(popup)
+    };
   });
 });
 
