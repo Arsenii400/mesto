@@ -1,7 +1,6 @@
-const page = document.querySelector('.page');
 const templateCard = document.querySelector('#element');
 const cardsListWrapper = document.querySelector('.elements');
-const footer = document.querySelector('.footer');
+const profile = document.querySelector('.profile');
 const fullName = document.querySelector('.profile__heading');
 const about = document.querySelector('.profile__about');
 const popupEditName = document.querySelector('.popup__input_type_name');
@@ -17,6 +16,8 @@ const popupAdd = document.querySelector('.popup__add');
 const popupImage = document.querySelector('.popup__image');
 const photo = document.querySelector('.popup__photo');
 const heading = document.querySelector('.popup__heading-image');
+const like = document.querySelector('.element__like');
+const trash = document.querySelector('.element__trash');
 
 
 function openPopup(popup) {
