@@ -1,6 +1,7 @@
+const page = document.querySelector('.page');
 const templateCard = document.querySelector('#element');
 const cardsListWrapper = document.querySelector('.elements');
-const profile = document.querySelector('.profile');
+const footer = document.querySelector('.footer');
 const fullName = document.querySelector('.profile__heading');
 const about = document.querySelector('.profile__about');
 const popupEditName = document.querySelector('.popup__input_type_name');
@@ -8,17 +9,22 @@ const popupEditAbout = document.querySelector('.popup__input_type_about');
 const popupAddTitle = document.querySelector('.popup__input_type_place');
 const popupAddLink = document.querySelector('.popup__input_type_link');
 const popup = document.querySelector('.popup');
+<<<<<<< HEAD
 const popups = document.querySelectorAll('.popup');
 const popupForm = document.querySelector('.popup__form');
 const popupForms = document.querySelectorAll('.popup__form');
 const popupEdit = document.querySelector('.popup__edit');
 const popupAdd = document.querySelector('.popup__add');
 const popupImage = document.querySelector('.popup__image');
+=======
+const popupEdit = document.querySelector('.popup_edit');
+const popupAdd = document.querySelector('.popup_add');
+const popupImage = document.querySelector('.popup_image');
+>>>>>>> parent of 3f17b3f (Hotfix: Убрал повторяющийся код в функции)
 const photo = document.querySelector('.popup__photo');
 const heading = document.querySelector('.popup__heading-image');
-const like = document.querySelector('.element__like');
-const trash = document.querySelector('.element__trash');
 
+<<<<<<< HEAD
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
@@ -61,9 +67,108 @@ profile.addEventListener('click', (evt) => {
     popupEditName.value = fullName.textContent;
     popupEditAbout.value = about.textContent;
     openPopup(popupEdit);
+=======
+function getEditPopup() {
+  popupEdit.classList.add('popup_opened');
+  popupEditName.value = fullName.textContent;
+  popupEditJob.value = job.textContent;
+};
+
+function getAddPopup() {
+  popupAdd.classList.add('popup_opened');
+  popupAddTitle.value = '';
+  popupAddLink.value = '';
+};
+
+function openFullPhoto(evt) {
+  popupImage.classList.add('popup_opened');
+  const cardPhoto = evt.target;
+  photo.src = cardPhoto.src;
+  photo.alt = cardPhoto.alt;
+  heading.textContent = cardPhoto.alt;
+};
+
+function closeEditPopupBtn() {
+  popupEdit.classList.remove('popup_opened');
+};
+
+function closeAddPopupBtn() {
+  popupAdd.classList.remove('popup_opened');
+};
+
+function closeFullPhoto() {
+  popupImage.classList.remove('popup_opened');
+};
+
+function submitEditPopup(evt) {
+  evt.preventDefault();
+  const popupEditName = document.querySelector('.popup__field_type_name');
+  const popupEditJob = document.querySelector('.popup__field_type_job');
+  fullName.textContent = popupEditName.value;
+  job.textContent = popupEditJob.value;
+  closeEditPopupBtn();
+};
+
+function submitAddUserCard(evt) {
+  evt.preventDefault();
+  const newCard = templateCard.content.cloneNode(true);
+  const newCardTitle = newCard.querySelector('.element__heading');
+  const newCardLink = newCard.querySelector('.element__img');
+  const popupEditName = document.querySelector('.popup__field_type_place');
+  const popupEditJob = document.querySelector('.popup__field_type_link');
+  newCardTitle.textContent = popupEditName.value;
+  newCardLink.src = popupEditJob.value;
+  newCardLink.alt = popupEditName.value;
+  cardsListWrapper.prepend(newCard);
+  closeAddPopupBtn();
+};
+
+function likeActive(evt) {
+  const elm = evt.target;
+  elm.classList.toggle('element__like_type_active');
+};
+
+function removeCard(evt) {
+  evt.target.closest('.element').remove();
+};
+
+// Повесил слушатель на всю страницу и на всплытии ловлю целевые элементы и к ним применяю функцию
+page.addEventListener('click', function (evt) {
+  const el = evt.target;
+  if (el.classList.value === 'profile__edit-button') {
+    getEditPopup();
   }
-  else if (evt.target.classList.contains('profile__add-button')) {
-    openPopup(popupAdd);
+  if (el.classList.value === 'profile__add-button') {
+    getAddPopup();
+  }
+  else if (el.classList.contains('popup__close_edit')) {
+    closeEditPopupBtn();
+  }
+  else if (el.classList.contains('popup__close_add')) {
+    closeAddPopupBtn();
+  }
+  else if (el.classList.contains('popup__close_image')) {
+    closeFullPhoto();
+  }
+  else if (el.classList.contains('element__like')) {
+    likeActive(evt);
+  }
+  else if (el.classList.value === 'element__img') {
+    openFullPhoto(evt);
+  }
+  else if (el.classList.value === 'element__trash') {
+    removeCard(evt);
+  }
+});
+
+page.addEventListener('submit', function (evt) {
+  const el = evt.target;
+  if (el.textContent.includes('Сохранить')) {
+    submitEditPopup(evt);
+>>>>>>> parent of 3f17b3f (Hotfix: Убрал повторяющийся код в функции)
+  }
+  else if (el.textContent.includes('Создать')) {
+    submitAddUserCard(evt);
   }
 });
 
@@ -94,6 +199,7 @@ const initialCards = [
   }
 ];
 
+<<<<<<< HEAD
 
 function likeActive(evt) {
   evt.target.classList.toggle('element__like_type_active');
@@ -110,30 +216,15 @@ function submitEditPopup(evt) {
   closePopup(popup);
 };
 
+=======
+>>>>>>> parent of 3f17b3f (Hotfix: Убрал повторяющийся код в функции)
 const getCard = function (title) {
   const newCard = templateCard.content.cloneNode(true);
   const newCardTitle = newCard.querySelector('.element__heading');
   const newCardLink = newCard.querySelector('.element__img');
-  const like = newCard.querySelector('.element__like');
-  const trash = newCard.querySelector('.element__trash');
   newCardTitle.textContent = title.name;
   newCardLink.src = title.link;
   newCardLink.alt = title.name;
-
-  newCardLink.addEventListener('click', function () {
-    photo.src = title.link;
-    heading.textContent = title.name;
-    openPopup(popupImage);
-  });
-
-  like.addEventListener('click', (evt) => {
-    likeActive(evt);
-  });
-
-  trash.addEventListener('click', (evt) => {
-    removeCard(evt);
-  });
-
   return newCard;
 };
 
@@ -145,6 +236,7 @@ initialCards.forEach(function (title) {
   renderCards(cardsListWrapper, title);
 });
 
+<<<<<<< HEAD
 function createCard(evt) {
   evt.preventDefault();
   const data = {
@@ -166,3 +258,7 @@ popupForms.forEach((popupForm) => {
     };
   });
 });
+=======
+
+
+>>>>>>> parent of 3f17b3f (Hotfix: Убрал повторяющийся код в функции)
