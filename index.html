@@ -22,7 +22,7 @@
       <div class="profile__info">
         <img class="profile__avatar" src="./images/avatar.jpg" alt="Жак Ив Кусто">
         <h1 class="profile__heading">Жак-Ив Кусто</h1>
-        <p class="profile__job-title">Исследователь океана</p>
+        <p class="profile__about">Исследователь океана</p>
         <button class="profile__edit-button" type="button" aria-label="edit"></button>
       </div>
 
@@ -44,11 +44,19 @@
     <div class="popup__container">
       <button class="popup__close popup__close_edit" type="button" aria-label="close"> </button>
 
-      <form class="popup__form" name="editProfileForm">
+      <form class="popup__form" name="editProfileForm" novalidate>
         <h3 class="popup__heading">Редактировать профиль</h3>
-        <input class="popup__field popup__field_type_name" type="text" name="fullName" placeholder="Имя">
-        <input class="popup__field popup__field_type_job" type="text" name="job" placeholder="О себе">
-        <button class="popup__submit" type="submit">Сохранить</button>
+        <label class="popup__field">
+          <input class="popup__input popup__input_type_name" id="name-input" type="text" name="fullName" minlength="2" maxlength="40"
+            placeholder="Имя" required>
+            <span class="popup__input-error name-input-error"></span>
+        </label>
+        <label class="popup__field">
+          <input class="popup__input popup__input_type_about" id="about-input" type="text" name="about" minlength="2" maxlength="200"
+            placeholder="О себе" required>
+            <span class="popup__input-error about-input-error"></span>
+        </label>
+        <button class="popup__submit" type="submit" disabled>Сохранить</button>
       </form>
 
     </div>
@@ -58,11 +66,19 @@
     <div class="popup__container">
       <button class="popup__close popup__close_add" type="button" aria-label="close"> </button>
 
-      <form class="popup__form" name="addCardForm">
+      <form class="popup__form" name="addCardForm" novalidate>
         <h3 class="popup__heading">Новое место</h3>
-        <input class="popup__field popup__field_type_place" type="text" name="fullName" placeholder="Название">
-        <input class="popup__field popup__field_type_link" type="text" name="job" placeholder="Ссылка на картинку">
-        <button class="popup__submit" type="submit">Создать</button>
+        <label class="popup__field">
+          <input class="popup__input popup__input_type_place" id="place-input" type="text" name="place" minlength="2" maxlength="30"
+            placeholder="Название" required>
+            <span class="popup__input-error place-input-error"></span>
+        </label>
+        <label class="popup__field">
+          <input class="popup__input popup__input_type_link" id="link-input" type="url" name="link" placeholder="Ссылка на картинку"
+            required>
+            <span class="popup__input-error link-input-error"></span>
+        </label>
+        <button class="popup__submit" type="submit" disabled>Создать</button>
       </form>
 
     </div>
@@ -87,6 +103,7 @@
     </li>
   </template>
 
+  <script src="./scripts/validate.js"></script>
   <script src="./scripts/index.js"></script>
 </body>
 
