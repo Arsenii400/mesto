@@ -62,8 +62,8 @@ profile.addEventListener('click', (evt) => {
     popupEditAbout.value = about.textContent;
     openPopup(popupEdit);
   }
-  else if (el.textContent.includes('Создать')) {
-    submitAddUserCard(evt);
+  else if (evt.target.classList.contains('profile__add-button')) {
+    openPopup(popupAdd);
   }
 });
 
@@ -114,9 +114,26 @@ const getCard = function (title) {
   const newCard = templateCard.content.cloneNode(true);
   const newCardTitle = newCard.querySelector('.element__heading');
   const newCardLink = newCard.querySelector('.element__img');
+  const like = newCard.querySelector('.element__like');
+  const trash = newCard.querySelector('.element__trash');
   newCardTitle.textContent = title.name;
   newCardLink.src = title.link;
   newCardLink.alt = title.name;
+
+  newCardLink.addEventListener('click', function () {
+    photo.src = title.link;
+    heading.textContent = title.name;
+    openPopup(popupImage);
+  });
+
+  like.addEventListener('click', (evt) => {
+    likeActive(evt);
+  });
+
+  trash.addEventListener('click', (evt) => {
+    removeCard(evt);
+  });
+
   return newCard;
 };
 
