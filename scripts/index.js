@@ -23,7 +23,8 @@ const popupAddBtn = document.querySelector('.popup__submit_type_add');
 
 const addEsc = (evt) => {
   if (evt.key === 'Escape') {
-    closePopup(popup);
+    const PopupOpened = document.querySelector('.popup_opened');
+    closePopup(PopupOpened);
   };
 };
 
