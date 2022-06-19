@@ -1,4 +1,7 @@
-const templateCard = document.querySelector('#element');
+import { Card } from './Card.js';
+import { FormValidator } from './FormValidator.js';
+import { initialCards, config } from './constans.js';
+
 const cardsListWrapper = document.querySelector('.elements');
 const profile = document.querySelector('.profile');
 const fullName = document.querySelector('.profile__heading');
@@ -9,15 +12,11 @@ const popupAddTitle = document.querySelector('.popup__input_type_place');
 const popupAddLink = document.querySelector('.popup__input_type_link');
 const popup = document.querySelector('.popup');
 const popups = document.querySelectorAll('.popup');
-const popupForm = document.querySelector('.popup__form');
 const popupForms = document.querySelectorAll('.popup__form');
 const popupEdit = document.querySelector('.popup_type_edit');
 const popupAdd = document.querySelector('.popup_type_add');
-const popupImage = document.querySelector('.popup_type_image');
-const photo = document.querySelector('.popup__photo');
-const heading = document.querySelector('.popup__heading-image');
-const like = document.querySelector('.element__like');
-const trash = document.querySelector('.element__trash');
+export const popupImage = document.querySelector('.popup_type_image');
+
 const popupEditBtn = document.querySelector('.popup__submit_type_edit');
 const popupAddBtn = document.querySelector('.popup__submit_type_add');
 
@@ -32,7 +31,7 @@ function closePopupEscBtn() {
   document.addEventListener('keydown', addEsc);
 }
 
-function openPopup(popup) {
+export function openPopup(popup) {
   popup.classList.add('popup_opened');
   closePopupEscBtn();
 };
@@ -87,42 +86,6 @@ profile.addEventListener('click', (evt) => {
   }
 });
 
-const initialCards = [
-  {
-    name: 'Микли (посёлок)',
-    link: 'https://images.unsplash.com/photo-1555948560-27b32a752ff3?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
-
-function likeActive(evt) {
-  evt.target.classList.toggle('element__like_type_active');
-};
-
-function removeCard(evt) {
-  evt.target.closest('.element').remove();
-};
-
 function submitEditPopup(evt) {
   evt.preventDefault();
   fullName.textContent = popupEditName.value;
@@ -130,40 +93,10 @@ function submitEditPopup(evt) {
   closePopup(popup);
 };
 
-const getCard = function (title) {
-  const newCard = templateCard.content.cloneNode(true);
-  const newCardTitle = newCard.querySelector('.element__heading');
-  const newCardLink = newCard.querySelector('.element__img');
-  const like = newCard.querySelector('.element__like');
-  const trash = newCard.querySelector('.element__trash');
-  newCardTitle.textContent = title.name;
-  newCardLink.src = title.link;
-  newCardLink.alt = title.name;
-
-  newCardLink.addEventListener('click', function () {
-    photo.src = title.link;
-    heading.textContent = title.name;
-    openPopup(popupImage);
-  });
-
-  like.addEventListener('click', (evt) => {
-    likeActive(evt);
-  });
-
-  trash.addEventListener('click', (evt) => {
-    removeCard(evt);
-  });
-
-  return newCard;
+function renderCards(wrapper, data) {
+  const newCard = new Card(data, '#element');
+  wrapper.prepend(newCard.generateCard());
 };
-
-function renderCards(wrapper, title) {
-  wrapper.prepend(getCard(title));
-};
-
-initialCards.forEach(function (title) {
-  renderCards(cardsListWrapper, title);
-});
 
 function createCard(evt) {
   evt.preventDefault();
@@ -185,4 +118,16 @@ popupForms.forEach((popupForm) => {
       createCard(evt);
     };
   });
+});
+
+initialCards.forEach((item) => {
+  const card = new Card(item, '#element');
+  const cardElement = card.generateCard();
+  document.querySelector('.elements').prepend(cardElement);
+});
+
+const formValidator = {};
+Array.from(document.forms).forEach((formElement) => {
+  formValidator[formElement.name] = new FormValidator(config, formElement);
+  formValidator[formElement.name].enableValidation();
 });
