@@ -13,14 +13,15 @@ const popupAddTitle = document.querySelector('.popup__input_type_place');
 const popupAddLink = document.querySelector('.popup__input_type_link');
 const popup = document.querySelector('.popup');
 const popups = document.querySelectorAll('.popup');
-const popupForms = document.querySelectorAll('.popup__form');
+const editProfileForm = document.querySelector('.popup__form_type_edit');
+const addCardForm = document.querySelector('.popup__form_type_add');
 const popupEdit = document.querySelector('.popup_type_edit');
 const popupAdd = document.querySelector('.popup_type_add');
 const photo = document.querySelector('.popup__photo');
 const heading = document.querySelector('.popup__heading-image');
 export const popupImage = document.querySelector('.popup_type_image');
 
-const addEsc = (evt) => {
+const handleEscape = (evt) => {
   if (evt.key === 'Escape') {
     const popupOpened = document.querySelector('.popup_opened');
     closePopup(popupOpened);
@@ -29,12 +30,12 @@ const addEsc = (evt) => {
 
 export function openPopup(popup) {
   popup.classList.add('popup_opened');
-  document.addEventListener('keydown', addEsc);
+  document.addEventListener('keydown', handleEscape);
 };
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', addEsc);
+  document.removeEventListener('keydown', handleEscape);
 };
 
 popups.forEach((popup) => {
@@ -103,15 +104,12 @@ function assembleCard(evt) {
   addCardForm.reset();
 };
 
-popupForms.forEach((popupForm) => {
-  popupForm.addEventListener('submit', (evt) => {
-    if (evt.target.textContent.includes('Сохранить')) {
-      submitEditPopup(evt);
-    }
-    else if (evt.target.textContent.includes('Создать')) {
-      assembleCard(evt);
-    };
-  });
+editProfileForm.addEventListener('submit', (evt) => {
+  submitEditPopup(evt);
+});
+
+addCardForm.addEventListener('submit', (evt) => {
+  assembleCard(evt);
 });
 
 const formValidator = {};
