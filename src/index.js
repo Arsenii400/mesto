@@ -1,6 +1,7 @@
-import { Card } from './Card.js';
-import { FormValidator } from './FormValidator.js';
-import { initialCards, config } from './constans.js';
+import './pages/index.css';
+import { Card } from './scripts/Card.js';
+import { FormValidator } from './scripts/FormValidator.js';
+import { initialCards, config } from './scripts/constans.js';
 
 const cardsListWrapper = document.querySelector('.elements');
 const fullName = document.querySelector('.profile__heading');
