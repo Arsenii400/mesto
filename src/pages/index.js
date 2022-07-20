@@ -1,12 +1,12 @@
-import './pages/index.css';
+import './index.css';
 
-import { initialCards, config } from './scripts/constans.js';
-import { Card } from './scripts/Card.js';
-import { UserInfo } from './scripts/UserInfo.js';
-import { Section } from './scripts/Section.js';
-import { PopupWithForm } from './scripts/PopupWithForm.js';
-import { PopupWithImage } from './scripts/PopupWithImage.js';
-import { FormValidator } from './scripts/FormValidator.js';
+import { initialCards, config } from '../utils/constans.js';
+import { Card } from '../components/Card.js';
+import { UserInfo } from '../components/UserInfo.js';
+import { Section } from '../components/Section.js';
+import { PopupWithForm } from '../components/PopupWithForm.js';
+import { PopupWithImage } from '../components/PopupWithImage.js';
+import { FormValidator } from '../components/FormValidator.js';
 
 const profileEditBtn = document.querySelector('.profile__edit-button');
 const profileAddBtn = document.querySelector('.profile__add-button');
@@ -24,7 +24,7 @@ import {
   imagePopupSelector,
   newPlaceFormName,
   profileFormName,
-} from './scripts/constans.js';
+} from '../utils/constans.js';
 
 const formValidator = {};
 Array.from(document.forms).forEach((formElement) => {
@@ -71,7 +71,7 @@ const fullViewPopup = new PopupWithImage(
 
 fullViewPopup.setEventListeners();
 
-const addCardSubmitHandler = () => {
+const openCardPopup = () => {
   newCardPopup.open();
 };
 
@@ -80,7 +80,7 @@ const handleProfilePopupOpen = () => {
 };
 
 profileAddBtn.addEventListener('click', () => {
-  addCardSubmitHandler();
+  openCardPopup();
 });
 
 profileEditBtn.addEventListener('click', () => {
