@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Место</title>
-
 </head>
 
 <body class="page">
@@ -68,9 +67,9 @@
       <form class="popup__form popup__form_type_add" name="addCardForm" novalidate>
         <h3 class="popup__heading">Новое место</h3>
         <label class="popup__field">
-          <input class="popup__input popup__input_type_place" id="place-input" type="text" name="place" minlength="2"
+          <input class="popup__input popup__input_type_place" id="name-input" type="text" name="place" minlength="2"
             maxlength="30" placeholder="Название" required>
-          <span class="popup__input-error place-input-error"></span>
+          <span class="popup__input-error name-input-error"></span>
         </label>
         <label class="popup__field">
           <input class="popup__input popup__input_type_link" id="link-input" type="url" name="link"
@@ -101,7 +100,7 @@
       </div>
     </li>
   </template>
-
+  <script type="module" src="./scripts/index.js"></script>
 </body>
 
 </html>

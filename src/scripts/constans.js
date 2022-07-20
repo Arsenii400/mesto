@@ -4,7 +4,7 @@ export const config = {
   submitButtonSelector: '.popup__submit',
   inactiveButtonClass: 'popup__submit_inactive',
   inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__input-error_active'
+  errorClass: 'popup__input-error_active',
 };
 
 export const initialCards = [
@@ -33,3 +33,30 @@ export const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
+
+export const formConfiguration = {
+  inputSelector: '.popup__input',
+  submitBtnSelector: '.popup__submit',
+}
+
+export const popupConfiguration = {
+  activeModifier: 'popup_opened',
+  closeBtnSelector: '.popup__close',
+}
+export const profileConfiguration = {
+  titleSelector: 'profile__heading',
+  jobSelector: 'profile__about',
+}
+
+export const viewPopupConfiguration = {
+  imageSelector: '.popup__photo',
+  captionSelector: '.popup__heading-image',
+}
+
+export const cardsContainerSelector = 'elements';
+export const newPlacePopupSelector = '.popup_type_add';
+export const profilePopupSelector = '.popup_type_edit';
+export const imagePopupSelector = '.popup_type_image';
+export const newPlaceFormName = 'addCardForm';
+export const profileFormName = 'editProfileForm';
+
