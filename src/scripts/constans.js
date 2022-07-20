@@ -44,8 +44,8 @@ export const popupConfiguration = {
   closeBtnSelector: '.popup__close',
 }
 export const profileConfiguration = {
-  titleSelector: 'profile__heading',
-  jobSelector: 'profile__about',
+  titleSelector: '.profile__heading',
+  jobSelector: '.profile__about',
 }
 
 export const viewPopupConfiguration = {
@@ -53,7 +53,7 @@ export const viewPopupConfiguration = {
   captionSelector: '.popup__heading-image',
 }
 
-export const cardsContainerSelector = 'elements';
+export const cardsContainerSelector = '.elements';
 export const newPlacePopupSelector = '.popup_type_add';
 export const profilePopupSelector = '.popup_type_edit';
 export const imagePopupSelector = '.popup_type_image';
