@@ -29,7 +29,6 @@ open = (cardId, removeCardCallBack) => {
 
 close = () => {
   super.close();
-  this._formElement.reset();
 }
 
 setEventListeners = () => {

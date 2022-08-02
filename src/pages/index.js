@@ -10,15 +10,13 @@ import { PopupWithConfirmation } from '../components/PopupWithConfirmation.js';
 import { FormValidator } from '../components/FormValidator.js';
 import { Api } from '../components/Api.js';
 
-const profileEditBtn = document.querySelector('.profile__edit-button');
-const profileAddBtn = document.querySelector('.profile__add-button');
-const updateAvatarBtn = document.querySelector('.profile__avatar');
-const editProfileForm = document.querySelector('.popup__form_type_edit');
-const addCardForm = document.querySelector('.popup__form_type_add');
-const updateAvatarForm = document.querySelector('.popup__form_type_updateAvatar')
-
-
 import {
+  profileEditBtn,
+  profileAddBtn,
+  updateAvatarBtn,
+  editProfileForm,
+  addCardForm,
+  updateAvatarForm,
   formConfiguration,
   popupConfiguration,
   profileConfiguration,
@@ -228,28 +226,3 @@ Promise.all([api.getProfileInfo(), api.getInitialCards()])
   .catch((err) => {
     console.log(`Ошибка в индексе: ${err}`)
   })
-
-// const cardFromServer = function() {
-//   api.getInitialCards()
-//   .then((res) => {
-//     cardsContainer.renderItems(res);
-//     console.dir(res);
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   })
-// }
-
-// cardFromServer();
-
-// const setUserInfoFromServer = function() {
-//   api.getProfileInfo()
-//   .then((res) => {
-//     user.setUserInfo(res);
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   })
-// }
-
-// setUserInfoFromServer();

@@ -78,7 +78,13 @@ export const deleteConfirmPopupSelector = '.popup_type_deleteConfirmation';
 export const newPlaceFormName = 'addCardForm';
 export const profileFormName = 'editProfileForm';
 export const updateAvatarFormName = 'updateAvatarForm';
-export const deleteConfirmFormName = 'deleteCardConfirmationForm'
+export const deleteConfirmFormName = 'deleteCardConfirmationForm';
+export const profileEditBtn = document.querySelector('.profile__edit-button');
+export const profileAddBtn = document.querySelector('.profile__add-button');
+export const updateAvatarBtn = document.querySelector('.profile__avatar');
+export const editProfileForm = document.querySelector('.popup__form_type_edit');
+export const addCardForm = document.querySelector('.popup__form_type_add');
+export const updateAvatarForm = document.querySelector('.popup__form_type_updateAvatar');
 
 export const ApiConfiguration = {
   url:'https://mesto.nomoreparties.co/v1/cohort-45',
