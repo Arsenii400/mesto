@@ -78,7 +78,6 @@ export const deleteConfirmPopupSelector = '.popup_type_deleteConfirmation';
 export const newPlaceFormName = 'addCardForm';
 export const profileFormName = 'editProfileForm';
 export const updateAvatarFormName = 'updateAvatarForm';
-export const deleteConfirmFormName = 'deleteCardConfirmationForm';
 export const profileEditBtn = document.querySelector('.profile__edit-button');
 export const profileAddBtn = document.querySelector('.profile__add-button');
 export const updateAvatarBtn = document.querySelector('.profile__avatar');

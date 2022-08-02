@@ -34,7 +34,6 @@ import {
   newPlaceFormName,
   profileFormName,
   updateAvatarFormName,
-  deleteConfirmFormName,
 } from '../utils/constans.js';
 
 const formValidator = {};
