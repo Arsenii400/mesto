@@ -46,6 +46,7 @@ export const popupConfiguration = {
 export const profileConfiguration = {
   titleSelector: '.profile__heading',
   jobSelector: '.profile__about',
+  avatarSelector: '.profile__avatar',
 }
 
 export const viewPopupConfiguration = {
@@ -53,10 +54,33 @@ export const viewPopupConfiguration = {
   captionSelector: '.popup__heading-image',
 }
 
-export const cardsContainerSelector = '.elements';
+export const newCardSubmitButtonConfiguration = {
+  normalCaption: 'Создать',
+  activeCaption: 'Создаю...',
+}
+
+export const editProfileSubmitButtonConfiguration = {
+  normalCaption: 'Сохранить',
+  activeCaption: 'Сохраняю...',
+}
+
+export const confimDeleteButtonCaption = {
+  normalCaption: 'Да',
+  activeCaption: 'Удаляю...',
+}
+
+export const cardsContainerSelector = 'elements';
 export const newPlacePopupSelector = '.popup_type_add';
 export const profilePopupSelector = '.popup_type_edit';
 export const imagePopupSelector = '.popup_type_image';
+export const updateAvatarPopupSelector = '.popup_type_updateAvatar';
+export const deleteConfirmPopupSelector = '.popup_type_deleteConfirmation';
 export const newPlaceFormName = 'addCardForm';
 export const profileFormName = 'editProfileForm';
+export const updateAvatarFormName = 'updateAvatarForm';
+export const deleteConfirmFormName = 'deleteCardConfirmationForm'
 
+export const ApiConfiguration = {
+  url:'https://mesto.nomoreparties.co/v1/cohort-45',
+  token: 'a04b0996-96db-486f-bf5a-22c04dae71aa',
+}

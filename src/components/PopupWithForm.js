@@ -1,7 +1,8 @@
 import { Popup } from './Popup.js';
 
 export class PopupWithForm extends Popup {
-  constructor(popupSelector, formName, popupConfig, formConfig, errorResetCallback, submitCallBack, getterCallBack = null) {
+  constructor(popupSelector, formName, popupConfig, formConfig, errorResetCallback, submitCallBack, { normalCaption, activeCaption },
+    getterCallBack = null) {
     super(popupSelector, popupConfig);
     this._formName = formName;
     this._inputSelector = formConfig.inputSelector;
@@ -12,6 +13,9 @@ export class PopupWithForm extends Popup {
     this._inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
     this._submitBtn = this._formElement.querySelector(this._submitBtnSelector);
     this._errorResetCallback = errorResetCallback;
+    this._normalCaption = normalCaption;
+    this._activeCaption = activeCaption;
+    this._submitButton = this._formElement.querySelector('.popup__submit');
   }
 
   _getInputValues = () => {
@@ -28,10 +32,15 @@ export class PopupWithForm extends Popup {
     })
   }
 
+  toggleButtonCaption = (isSaving) => {
+    this._submitButton.textContent = isSaving ? this._activeCaption : this._normalCaption;
+  }
+
   _handleSubmit = (evt) => {
     evt.preventDefault();
-    this._submitCallBack(this._getInputValues());
-    this.close();
+    // console.log(this._getInputValues());
+    this._submitCallBack(this._getInputValues(), this.toggleButtonCaption, this.close);
+    // this.close();
   }
 
   setEventListeners = () => {
@@ -40,6 +49,8 @@ export class PopupWithForm extends Popup {
   }
 
   open = () => {
+    super.open();
+    // console.log("Проверка метода опен класса попапвизформ");
     if (this._getterCallBack) {
       this._setInputValues(this._getterCallBack());
     }
@@ -47,7 +58,7 @@ export class PopupWithForm extends Popup {
       this._formElement.reset();
     }
     this._errorResetCallback();
-    super.open();
+
   }
 
   close = () => {

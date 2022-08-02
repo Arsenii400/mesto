@@ -5,12 +5,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Место</title>
+  <link rel="stylesheet" href="./index.css">
 </head>
 
 <body class="page">
 
   <header class="header">
-    <img class="header__logo" src="<%=require('../images/logo.svg')%>" alt="Место - Россия">
+    <img class="header__logo" src="../images/logo.svg" alt="Место - Россия">
   </header>
 
   <main class="main">
@@ -18,7 +19,9 @@
     <section class="profile">
 
       <div class="profile__info">
-        <img class="profile__avatar" src="<%=require('../images/avatar.jpg')%>" alt="Жак Ив Кусто">
+        <div class="profile__parent-avatar">
+          <img class="profile__avatar" src="../images/avatar.jpg" width="120" height="120" alt="Жак Ив Кусто">
+        </div>
         <h1 class="profile__heading">Жак-Ив Кусто</h1>
         <p class="profile__about">Исследователь океана</p>
         <button class="profile__edit-button" type="button" aria-label="edit"></button>
@@ -45,9 +48,9 @@
       <form class="popup__form popup__form_type_edit" name="editProfileForm" novalidate>
         <h3 class="popup__heading">Редактировать профиль</h3>
         <label class="popup__field">
-          <input class="popup__input popup__input_type_name" id="title-input" type="text" name="fullName" minlength="2"
+          <input class="popup__input popup__input_type_name" id="name-input" type="text" name="fullName" minlength="2"
             maxlength="40" placeholder="Имя" required>
-          <span class="popup__input-error title-input-error"></span>
+          <span class="popup__input-error name-input-error"></span>
         </label>
         <label class="popup__field">
           <input class="popup__input popup__input_type_about" id="about-input" type="text" name="about" minlength="2"
@@ -82,16 +85,40 @@
     </div>
   </div>
 
-  <div class="popup popup_type_image">
-    <div class="popup__image-container">
-      <button class="popup__close popup__close_image" type="button" aria-label="close"></button>
-      <img class="popup__photo" src=" " alt="">
-      <h3 class="popup__heading-image"></h3>
+  <div class="popup popup_type_deleteConfirmation">
+    <div class="popup__dltConfirm-container">
+
+      <button class="popup__close popup__close_deleteConfirmation" type="button" aria-label="close"></button>
+      <h3 class="popup__dltConfirm-heading">Вы уверены?</h3>
+      <form class="popup__form popup__form_type_deleteConfirmation" name="deleteCardConfirmationForm" novalidate>
+        <button class="popup__submit popup__submit_type_delete" type="submit">Да</button>
+      </form>
     </div>
   </div>
 
-  <div class="popup popup_type_deleteConfirmation">
-    <div class="popup__deleteConfirmation-container">
+  <div class="popup popup_type_updateAvatar">
+    <div class="popup__updateAvatar-container">
+
+      <button class="popup__close popup__close_updateAvatar" type="button" aria-label="close"></button>
+      <h3 class="popup__heading">Обновить аватар</h3>
+      <form class="popup__form popup__form_type_updateAvatar" name="updateAvatarForm" novalidate>
+        <label class="popup__field">
+          <input class="popup__input popup__input_type_avatar" id="avatar-input" type="url" name="avatar"
+            placeholder="Ссылка на аватар" required>
+          <span class="popup__input-error avatar-input-error"></span>
+        </label>
+        <button class="popup__submit popup__submit_type_updateAvatar" type="submit">Сохранить</button>
+      </form>
+
+    </div>
+  </div>
+
+  <div class="popup popup_type_image">
+    <div class="popup__image-container">
+
+      <button class="popup__close popup__close_image" type="button" aria-label="close"></button>
+      <img class="popup__photo" src=" " alt="">
+      <h3 class="popup__heading-image"></h3>
 
     </div>
   </div>
@@ -102,10 +129,14 @@
       <img src=" " alt="" class="element__img">
       <div class="element__wrapper">
         <h2 class="element__heading"></h2>
-        <button class="element__like" type="button" aria-label="like"></button>
+        <div class="element__likeWrapper">
+          <button class="element__like" type="button" aria-label="like"></button>
+          <p class="element__likeCounter">0</p>
+        </div>
       </div>
     </li>
   </template>
+  <script type="module" src="./index.js"></script>
 </body>
 
 </html>
