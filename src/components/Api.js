@@ -4,29 +4,6 @@ export class Api {
     this._token = options.token;
   }
 
-  // _checkResponse = (res) => {
-  //   console.log('_checkResponse\nres:');
-  //   console.dir(res);
-  //   console.log(res.ok);
-  //   const response = res.json();
-  //     if (res.ok) {
-  //       return response;
-  //     }
-  //     response.then((err) => {
-  //       console.dir(this);
-  //       this._handleServerErrors(err)});
-  // }
-
-  // _handleServerErrors = (err) => {
-  //   console.log('_handleServerErrors');
-  //   console.dir(err);
-  //   return Promise.reject(`Ошибка сети: ${err.message}`);
-  // }
-
-  // _fetchFromServer = (url, options) => {
-
-  // }
-
   getInitialCards() {
     return fetch(`${this._url}/cards`, {
       method: 'GET',
@@ -102,7 +79,7 @@ export class Api {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        name: data.name,
+        name: data.title,
         about: data.about,
       })
     })
@@ -129,22 +106,6 @@ export class Api {
       return Promise.reject(`Что-то пошло не так: ${res.status}`);
     })
   }
-
-  // deleteLike() {
-  //   return fetch(`${this._url}/cards/${id}/likes`, {
-  //     method: 'DELETE',
-  //     headers: {
-  //       authorization: this._token,
-  //       'Content-Type': 'application/json'
-  //     }
-  //   })
-  //   .then((res) => {
-  //     if (res.ok) {
-  //       return res.json();
-  //     }
-  //     return Promise.reject(`Что-то пошло не так: ${res.status}`);
-  //   })
-  // }
 
   updateAvatar(data) {
     return fetch(`${this._url}/users/me/avatar`, {

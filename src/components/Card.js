@@ -21,7 +21,6 @@ export class Card {
   };
 
   _handleLikeClick = () => {
-    // console.log(`this._id = '${this._id}', this._isLiked() = '${this._isLiked()}'`)
     this._handleCardLike(this._id, this._isLiked(), this.setLikes);
   };
 
@@ -45,7 +44,7 @@ export class Card {
   }
 
   removeCard = () => {
-    this._element.remove(/* '.element' */);
+    this._element.remove();
   };
 
 

@@ -38,9 +38,7 @@ export class PopupWithForm extends Popup {
 
   _handleSubmit = (evt) => {
     evt.preventDefault();
-    // console.log(this._getInputValues());
     this._submitCallBack(this._getInputValues(), this.toggleButtonCaption, this.close);
-    // this.close();
   }
 
   setEventListeners = () => {
@@ -50,7 +48,6 @@ export class PopupWithForm extends Popup {
 
   open = () => {
     super.open();
-    // console.log("Проверка метода опен класса попапвизформ");
     if (this._getterCallBack) {
       this._setInputValues(this._getterCallBack());
     }

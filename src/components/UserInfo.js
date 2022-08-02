@@ -20,16 +20,10 @@ export class UserInfo {
 
   getUserInfo = () => {
     return {
-      name: this._titleElement.textContent,
+      title: this._titleElement.textContent,
       about: this._jobElement.textContent,
       avatar: this._avatarElement.src,
     };
-  }
-
-  getUserAvatar = () => {
-    {
-      avatar: this._avatar
-     }
   }
 
   getUserId = () => {
