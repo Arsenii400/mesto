@@ -1,3 +1,5 @@
+import './index.css';
+
 import { initialCards, config } from '../utils/constans.js';
 import { Card } from '../components/Card.js';
 import { UserInfo } from '../components/UserInfo.js';
