@@ -130,8 +130,7 @@ const createCard = (cardItem) => {
 
 const cardsContainer = new Section({
   items: initialCards.reverse(), renderer: createCard,},
-  cardsContainerSelector,
-  user.getUserId()
+  cardsContainerSelector
 );
 
 const newProfilePopup = new PopupWithForm(
